@@ -1,0 +1,72 @@
+header {
+    background-color: black;
+    text-align: center; /* Centraliza os botões na página */
+    padding: 10px 0; /* Espaçamento vertical */
+}
+
+nav ul {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove as margens padrão */
+}
+
+nav ul li {
+    display: inline; /* Coloca os itens da lista em linha */
+}
+
+nav ul li a {
+    color: white; /* Define a cor do texto para branco */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 16px; /* Define o tamanho da fonte */
+    margin: 0 15px; /* Margem horizontal entre os botões */
+    padding: 8px 16px; /* Espaçamento interno para os links */
+    border: 1px solid white; /* Borda branca ao redor dos links */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+nav ul li a:hover {
+    background-color: grey; /* Cor de fundo ao passar o mouse */
+}
+body {
+    background-color: #121212;
+    h1{
+        font-family: 'Source', monospace;
+        color: white;
+        text-align: center;
+    }
+    h2{
+        font-family: 'Source', monospace;
+        color: white;
+        text-align: center;
+    }
+    h3{
+        font-family: 'Source', monospace;
+        color: white;
+        text-align: center;
+    }
+    h4{
+        font-family: 'Source', monospace;
+        color: rgb(0, 255, 0);
+        text-align: center;
+        font-size: large;
+    }
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto-Black.ttf) format('Roboto-Black');
+    src: url(assets/fonts/Roboto-Medium.ttf) format('Roboto-Medium');
+    src:  url(assets/fonts/Roboto-Thin.ttf) format('Roboto-Thin');
+    font-weight: normal;
+    font-size: normal;
+}
+@font-face {
+    font-family: 'Source', monospace;
+    src: url(assets/fonts/SourceCodePro-Black.ttf) format('Source-Black');
+}
+#greeting {
+    border-right: 2px solid black; 
+    font-family: monospace;        
+    padding: 5px;                  
+    margin: 0;                     
+    white-space: pre;             
+}

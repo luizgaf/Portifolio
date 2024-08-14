@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portifólio - Luiz Guilherme de Almeida Fernandes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#sobremim">Sobre mim</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#links">Links</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    const translations = [
+      "</welcome>",   // Inglês
+      "</bienvenido>",// Espanhol
+      "</bem-vindo>", // Português
+      "</willkommen>",// Alemão
+      "</bienvenue>", // Francês
+      "</benvenuto>"  // Italiano
+    ];
+  
+    let currentIndex = 0;
+    let currentText = '';
+    let letterIndex = 0;
+
+    function typeText() {
+        const textElement = document.getElementById('greeting');
+        if (letterIndex < translations[currentIndex].length) {
+        currentText += translations[currentIndex].charAt(letterIndex);
+        textElement.innerText = currentText;
+        letterIndex++;
+        setTimeout(typeText, 80); // Velocidade de digitação
+        } else {
+        setTimeout(updateGreeting, 3000); // Pausa antes de mudar a linguagem
+        }
+    }
+
+    function updateGreeting() {
+        currentText = '';
+        letterIndex = 0;
+        currentIndex = (currentIndex + 1) % translations.length;
+        typeText(); // Começa a digitar o novo texto
+    }
+
+    // Inicia o ciclo de digitação ao carregar a página
+    window.onload = function() {
+        updateGreeting();
+    };
+    </script> 
+<header>
+
+</header>
 <body>
-    
+    <h1>Meu Portifólio</h1>
+    <h2>Luiz Guilherme de Almeida Fernandes</h2>
+    <h3>Desenvolvedor Full Stack</h3>
+    <h4 id="greeting"> </h4>
 </body>
 </html>
