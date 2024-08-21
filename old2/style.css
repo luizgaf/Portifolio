@@ -1,0 +1,133 @@
+/* Base Styles */
+body {
+    background-color: #0D1117;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Main Text Section Styles */
+.top{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:auto;
+    height: 110vb;
+}
+.main_text {
+    text-align: center;
+    width: auto;
+    height: 45vb;
+    padding-bottom: 10vb;
+}
+
+#toptxt {
+    color: white;
+    font-family: 'Source', monospace;
+    
+}
+
+#greeting {
+    color: rgb(0, 255, 0);
+    font-family: 'Source', monospace;
+    font-size: large;
+    padding: 5px;                 
+    margin: 0;                     
+    white-space: pre;              
+}
+
+/* Font Faces */
+@font-face {
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto-Black.ttf) format('truetype'),
+         url(assets/fonts/Roboto-Medium.ttf) format('truetype'),
+         url(assets/fonts/Roboto-Thin.ttf) format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Source';
+    src: url(assets/fonts/SourceCodePro-Black.ttf) format('truetype');
+}
+
+/* Useful Links Section Styles */
+.links_uteis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.links_uteis ul {
+    list-style: none; /* Remove list markers */
+    padding: 0;
+    display: flex;
+}
+
+.links_uteis li {
+    margin: 0 10px; /* Space between icons */
+}
+
+.links_uteis a {
+    color: white; /* Text color */
+    font-size: 40px; /* Icon size */
+    text-decoration: none; /* Remove underline */
+}
+
+/* About Me Section Styles */
+.aboutme {
+    width: 100%;
+    height: 90vh; /* 90% of the viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.naosei {
+    background-color: #010409;
+    width: 190vb;
+    height: 94vb;
+    border-radius: 10px;
+    border: 0.26vb solid #30363D;
+    display: inline-flex;
+    justify-content: center ;
+    align-items: center;
+}
+.image-container {
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: red;
+    height: 90%;
+
+}
+
+/* Estilo da imagem */
+.image-container img {
+    max-width: 900px; /* Largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Bordas arredondadas opcionais */
+}
+
+/* Estilo do contêiner de texto */
+.text-container p {
+    margin: 0; /* Remove margens padrão dos parágrafos */
+    color: #ffffff; /* Cor do texto */
+    font-family: 'Source', monospace; /* Fonte do texto */
+    font-size: large;
+    background-color: gray;
+
+}
+.text-container{
+    justify-content: center;
+    align-items:center;
+    display: inline-grid;
+    background-color: red;
+    height: 90%;
+    width: 90vb;
+}
