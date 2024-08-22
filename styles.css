@@ -110,7 +110,7 @@ body {
 .image-container img {
     max-width: 90%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .text-container {
@@ -129,6 +129,8 @@ body {
     color: #ffffff;
     font-family: 'Source', monospace;
     font-size: 140%;
+    text-align:start;
+    padding-right: 15%;
 }
 
 /* Media Queries for Responsiveness */
@@ -143,3 +145,106 @@ body {
         width: 50%; /* Metade da largura para desktops */
     }
 }
+
+@media only screen and (max-width: 770px){
+    .aboutme {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Alterado para coluna */
+    }
+    .naosei {
+        background-color: #010409;
+        width: 97%;
+        height: 97vh;
+        border-radius: 10px;
+        border: 0.26vh solid #30363D;
+        display: flex;
+        flex-direction: column; /* Alterado para coluna */
+        justify-content: center;
+        align-items: center;
+        row-gap: 3vh;
+    }
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        padding: 20px;
+        height: auto;
+        row-gap: 5vh;
+    }
+    .text-container p {
+        margin: 0;
+        color: #ffffff;
+        font-family: 'Source', monospace;
+        font-size: 140%;
+        text-align: center;
+        padding-right: 0vw;
+    }
+}
+@media only screen and (max-width: 480px){
+    .aboutme {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Alterado para coluna */
+    }
+    .naosei {
+        background-color: #010409;
+        width: 97%;
+        height: 100vh;
+        border-radius: 10px;
+        border: 0.26vh solid #30363D;
+        display: flex;
+        flex-direction: column; /* Alterado para coluna */
+        justify-content: center;
+        align-items: center;
+        row-gap: 3vh;
+        
+    }
+    .text-container p {
+        margin: 0;
+        color: #ffffff;
+        font-family: 'Source', monospace;
+        font-size: 110%;
+        text-align: center;
+        padding-right: 0vw;
+    }
+}
+@media only screen and (max-height: 699px){
+    .aboutme {
+        width: 100%;
+        height: 120vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Alterado para coluna */
+    }
+    .naosei {
+        background-color: #010409;
+        width: 97%;
+        height: 210vh;
+        border-radius: 10px;
+        border: 0.26vh solid #30363D;
+        display: flex;
+        flex-direction: column; /* Alterado para coluna */
+        justify-content: center;
+        align-items: center;
+        row-gap: 3vh;
+        
+    }
+    .text-container p {
+        margin: 0;
+        color: #ffffff;
+        font-family: 'Source', monospace;
+        font-size: 110%;
+        text-align: start;
+    }
+}
+
