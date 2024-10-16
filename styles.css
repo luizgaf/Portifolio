@@ -7,19 +7,43 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
+    font-family: 'Source', monospace;
+}
+
+.header{
+    background-color: #06090e;
+    display: flex;
+    height: 17vh;
+    width: 100%;
+    align-items: center;
+    justify-content: left;
+    font-family: 'Source', monospace;
+}
+.header-h-list{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.headerbutton{
+    margin: 40px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
 }
 
 /* Main Text Section Styles */
 .top {
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     width: 100%;
-    height: 110vh;
+    height: 70vh;
 }
 
 .main_text {
     text-align: center;
+    padding-top: 15vh;
     width: 90%;
     height: 45vh;
     padding-bottom: 10vh;
@@ -38,6 +62,9 @@ body {
     padding: 5px;
     margin: 0;
     white-space: pre;
+}
+.hoursideside{
+    display: flex;
 }
 
 /* Font Faces */
@@ -133,6 +160,20 @@ body {
     padding-right: 15%;
 }
 
+.horizontal-list{
+    display: flex;
+    padding: 0;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+}
+.hour{
+    margin: 5%
+}
+#hoursection{
+    justify-content: center;
+}
+
 /* Media Queries for Responsiveness */
 @media only screen and (min-width: 770px) {
     .aboutme, .naosei {
@@ -185,6 +226,14 @@ body {
         text-align: center;
         padding-right: 0vw;
     }
+    .horizontal-list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0 10px;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media only screen and (max-width: 480px){
     .aboutme {
@@ -216,8 +265,23 @@ body {
         text-align: center;
         padding-right: 0vw;
     }
+    .horizontal-list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0 10px;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media only screen and (max-height: 699px){
+    .top {
+        justify-content: center;
+        align-items: flex-start;
+        display: flex;
+        width: 100%;
+        height: 140vh;
+    }
     .aboutme {
         width: 100%;
         height: 120vh;
@@ -247,4 +311,12 @@ body {
         text-align: start;
     }
 }
-
+@media only screen and (max-height: 999px){
+    .top {
+        justify-content: center;
+        align-items: flex-start;
+        display: flex;
+        width: 100%;
+        height: 110vh;
+    }
+}
