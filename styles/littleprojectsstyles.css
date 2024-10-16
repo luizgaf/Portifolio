@@ -1,0 +1,35 @@
+.stance{
+    padding-top: 30px;
+    font-weight: 1000;
+}
+.stance >h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hoursideside{
+    display: flex;
+}
+.horizontal-list{
+    display: flex;
+    padding: 0;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+}
+.hour{
+    margin: 5%;
+}
+#hoursection{
+    justify-content: center;
+}
+.hour>h4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hour>h6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
