@@ -7,8 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portfólio - Little Projects</title>
         <!-- javascript -->
-         <script src="scripts/welcometranslations.js" defer></script>
+         <script src="scripts/hourscriptonload.js" defer></script>
          <script src="scripts/hours.js" defer></script>
+         <script src="scripts/analogclock.js" defer></script>
         <!-- Link to external CSS files -->
         <link rel="stylesheet" href="styles/bodybaseheader.css">
         <link rel="stylesheet" href="styles/littleprojectsstyles.css">
@@ -16,15 +17,6 @@
     </head>
 
 <body>
-    <script>
-        window.onload = function(){
-            loop(9, 'hjpn');
-            loop(-3, 'hbsb');
-            loop(-4, 'hnyc');
-            loop(0, 'hgmt');
-        }
-     </script>
-
     <!-- headerr -->
     <header class="header">
         <ul class="header-h-list">
@@ -43,8 +35,14 @@
                 <div class="hour">
                     <div class="hoursideside">
                         <h2 id="hjpn"></h2>
-                        <h6 class="seconds">00</h6>
                     </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="acjpn"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+
                     <h4>Tokyo</h4>
                     <h6>Japan</h6>
                 </div>
@@ -52,8 +50,14 @@
                 <div class="hour">
                     <div class="hoursideside">
                         <h2 id="hbsb"></h2>
-                        <h6 class="seconds">00</h6>
                     </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="acbsb"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                    
                     <h4>Brasília</h4>
                     <h6>Brazil</h6>
                 </div>
@@ -61,8 +65,14 @@
                 <div class="hour">
                     <div class="hoursideside">
                         <h2 id="hnyc"></h2>
-                        <h6 class="seconds">00</h6>
                     </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="acnyc"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                    
                     <h4>New York</h4>
                     <h6>United States</h6>
                 </div>
@@ -70,10 +80,46 @@
                 <div class="hour">
                     <div class="hoursideside">
                         <h2 id="hgmt"></h2>
-                        <h6 class="seconds">00</h6>
                     </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="aclon"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                    
                     <h4>London</h4>
                     <h6>England</h6>
+                </div>
+
+                <div class="hour">
+                    <div class="hoursideside">
+                        <h2 id="hsyd"></h2>
+                    </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="acsyd"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                    
+                    <h4>Sydney</h4>
+                    <h6>Australia</h6>
+                </div>
+
+                <div class="hour">
+                    <div class="hoursideside">
+                        <h2 id="hbei"></h2>
+                    </div>
+
+                    <div class="analog-clock">
+                        <div class="hand hour-hand" id="acbei"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                    
+                    <h4>Beijing</h4>
+                    <h6>China</h6>
                 </div>
 
             </ul>
