@@ -1,6 +1,8 @@
 .stance{
     padding-top: 30px;
     font-weight: 1000;
+    width: 100%;
+    height: auto;
 }
 .stance >h1{
     display: flex;
@@ -9,6 +11,7 @@
 }
 .hoursideside{
     display: flex;
+    justify-content: center;
 }
 .horizontal-list{
     display: flex;
@@ -32,4 +35,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.analog-clock{
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgb(22, 21, 31);
+}
+
+.hand{
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.hour-hand{
+    height: 3.2px;
+    width: 30%;
+    left: 20%;
+}
+.minute-hand{
+    width: 45%;
+    left: 5%;
+    height: 2px;
+    background-color: white
+}
+.second-hand{
+    height: 2px;
+    background-color: red;
 }
