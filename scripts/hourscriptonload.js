@@ -12,4 +12,5 @@ window.onload = function(){
     loopClock(0, '#aclon');   // Londres, Inglaterra
     loopClock(8, '#acbei');   // Pequim, China
     loopClock(11, '#acsyd');  // Sydney, Austrália
+
 }

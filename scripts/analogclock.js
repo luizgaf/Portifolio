@@ -1,3 +1,47 @@
+function handAnimaOff(a, hour, minute, sec) {
+    if (a == 0 && hour == false) {
+        if (minute == true) {
+            const elements = document.getElementsByClassName('minute-hand');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.transition = 'none'; 
+            }
+        } else {
+            const elements = document.getElementsByClassName('second-hand');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.transition = 'none';
+            }
+        }
+    }
+    if (hour == true && a <= 23) {
+        const elements = document.getElementsByClassName('hour-hand');
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.transition = 'none';
+        }
+    } else {
+        if (a < 59 && a > 0 && hour == false) {
+            if (minute == true) {
+                const elements = document.getElementsByClassName('minute-hand');
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].style.transition = 'transform 0.4s ease-in-out';  
+                }
+            } else {
+                const elements = document.getElementsByClassName('second-hand');
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].style.transition = 'transform 0.4s ease-in-out';  
+                }
+            }
+        } else {
+            if ( a > 0 && hour == true && a < 23 ) {
+                const elements = document.getElementsByClassName('hour-hand');
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].style.transition = 'transform 0.4s ease-in-out';  
+                }
+            }
+        }
+    }
+}
+
+
 function setClock(i, customHourHand) {
     // Seleciona os ponteiros
     const hourHand = document.querySelector(customHourHand);
@@ -29,6 +73,11 @@ function setClock(i, customHourHand) {
     secondHand.style.transform = `rotate(${secondsDeg}deg)`;
     minuteHand.style.transform = `rotate(${minutesDeg}deg)`;
     hourHand.style.transform = `rotate(${hourDeg}deg)`;
+
+
+    handAnimaOff(seconds, false, false, true);
+    handAnimaOff(hours, true, false, false);
+    handAnimaOff(minutes, false, true, false);
 }
 
 function loopClock(i, customHourHand) {
