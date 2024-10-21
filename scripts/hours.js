@@ -19,3 +19,4 @@ function loop(i, idname) {
 function gmtTime(i, idname) {
     document.getElementById(idname).innerHTML = getGmtTime(i);    
 }
+

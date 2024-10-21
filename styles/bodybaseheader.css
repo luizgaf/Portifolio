@@ -27,7 +27,12 @@
 }
 
 /* body */
+html {
+    margin: 0;
+    padding: 0;
+  }
 body {
+    width: auto;
     background-color: #0D1117;
     margin: 0;
     padding: 0;

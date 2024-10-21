@@ -1,0 +1,82 @@
+.hoursideside{
+    display: flex;
+    justify-content: center;
+}
+.horizontal-list {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap; 
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 601px) and (max-width: 1200px) {
+    .horizontal-list {
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-wrap: wrap; 
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+.hour{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    justify-content: center;
+    align-items: center;
+}
+#hoursection{
+    justify-content: center;
+}
+.hour>h4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hour>h6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.analog-clock{
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgb(22, 21, 31);
+}
+
+.hand{
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+}
+
+.hour-hand{
+    height: 3.2px;
+    width: 30%;
+    left: 20%;
+    transition: transform 0.4s ease-in-out;
+}
+.minute-hand{
+    width: 45%;
+    left: 5%;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.4s ease-in-out;
+}
+.second-hand{
+    height: 2px;
+    background-color: red;
+    transition: transform 0.4s ease-in-out;
+}
