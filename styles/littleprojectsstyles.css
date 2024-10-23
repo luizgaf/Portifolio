@@ -3,6 +3,11 @@
     font-weight: 1000;
     width: 100%;
     height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .stance >h1{
     display: flex;
