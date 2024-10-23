@@ -228,7 +228,7 @@ font-size: 3em;
     margin:0;
 }
 
-@media (min-width: 200px) and (max-width: 1000px) {
+@media (min-width: 200px) and (max-width: 800px) {
     #calculator-body{
         width: 100%;
     }
@@ -254,5 +254,39 @@ font-size: 3em;
     }
     #rest-operations{
         height: 60%;
+    }
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+    #calculator-body{
+        width: 100%;
+    }
+
+    #number-buttons-zone>div{
+        gap: 4px;
+        height: 80%;
+    }
+    .calc-b1{
+       width: 8vh;
+       height: 8vh; 
+    }
+    .operator{
+        width: 7vh;
+        height: 7vh; 
+    }
+    #other-things{
+        width: 9vh;
+        height: 9vh; 
+    }
+    #operations-buttons{
+        height:30%;
+    }
+    #rest-operations{
+        height: 70%;
+    }
+    #equal-button{
+        height: 70%;
+    }
+    #rest-operations{
+        gap: 40px;
     }
 }
