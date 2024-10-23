@@ -14,31 +14,81 @@
     justify-content: left;
     display: flex;
     margin: 0;
-    padding-left: 40px;
+    width: 50%;
+    height: 100%;
+}
+#header-rest{
+    display: flex;
+    justify-content: right;
     width: 50%;
     height: 100%;
 }
 
+
+/* config buttn */
+#headerconfig{
+    height: 9vh;
+    width: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#config-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: 50% 50%;
+}
+
+#img-config-header{
+    width: 90%;
+    height: 90%;
+}
+
+#config-img:hover{
+    transform: rotate(360deg);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: 50% 50%;
+}
+
 @media only screen and (max-width: 700px){
     .header-h-list{
-        width: 90%;
+        width: 80%;
+        padding-left: 2%;
     }
+    
     #littleprojectsbutton{
         width: min-content;
         padding-left: 5%;
         padding-right: 5%;
     }
+
+    #header-rest{
+        width: 20%;
+    }
 }
+
 @media only screen and (min-width: 700px){
     #littleprojectsbutton{
         width: 150px;
         padding-left: 0%;
         padding-right: 0%;
     }
+    .header-h-list{
+        padding-left: 40px;
+    }
 }
 .headerbutton {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
     width: 80px;
     color: white;
     text-decoration: none;
