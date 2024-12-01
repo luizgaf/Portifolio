@@ -1,0 +1,42 @@
+#l-header{
+    margin: 20px;
+}
+
+#table{
+    width: 100%;
+    height: auto;
+}
+
+/*tabueiro*/
+#table-top{ 
+    background-color: #CACACA;
+    display: grid;
+    width: 800px;
+    height: 800px;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(auto-fill, 1fr);
+    gap: 0;
+    border-radius: 10px;
+}
+
+#startGameButton{
+    background-color: #d1d1d1;
+    color: #525252;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: large;
+    width: 35vw;
+    height: 8vh;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+}
+#startGameButton:hover{
+    background-color: #2f2f2f;
+    color: whitesmoke;
+}
+#startGameButton:active{
+    background-color: black;
+}
+

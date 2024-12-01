@@ -1,0 +1,14 @@
+@media (max-width: 480px) {
+
+    #table-top{
+        width: 100vw;
+        height: 100vw;
+        border-radius: 0px;
+    }
+
+    #game-config{
+        margin-top: 40px;
+        flex-direction: column;
+        gap: 2vh;
+    }
+}
