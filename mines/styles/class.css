@@ -24,11 +24,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc; 
+    border: 1px solid #b0b0b0; 
     box-sizing: border-box; 
     font-size: 1rem; 
     padding: 0px;
-    border: solid 1px gray;
+    border: solid 1px rgb(58, 58, 58);
 }
 
 .type-button-flag-click{

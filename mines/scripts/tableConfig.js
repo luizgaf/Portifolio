@@ -74,6 +74,8 @@ function boardBuilder(){
             cell.setAttribute("data-x", i);
             cell.setAttribute("data-y", j);
 
+            cell.style.backgroundColor = "#b0b0b0";
+
             const buttonSize = 100 / side; 
 
             table.appendChild(cell);
@@ -202,7 +204,9 @@ function revealCell(cell, x, y, side, isBomb) {
                         if (newX >= 0 && newX < side && newY >= 0 && newY < side) {
                             const adjacentCell = document.querySelector(
                                 `[data-x='${newX}'][data-y='${newY}']`
+                                
                             );
+                            cell.style.backgroundColor = "white";
                             if (adjacentCell) {
                                 revealCell(adjacentCell, newX, newY, side, false); // Não revele bomba nas adjacências
                             }
