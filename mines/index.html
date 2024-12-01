@@ -14,18 +14,46 @@
     <!-- scripts -->
     <script src="scripts/tableConfig.js" defer></script>
 
+    <script>
+      function checkScreenWidth() {
+          const blackScreen = document.getElementById("blackScreen");
+          if (window.innerWidth > 480) {
+              blackScreen.style.display = "flex"; // Mostra a tela preta
+          } else {
+              blackScreen.style.display = "none"; // Oculta a tela preta
+          }
+      }
+
+      // Executa a verificação ao carregar a página
+      window.onload = checkScreenWidth;
+
+      // Monitora mudanças no tamanho da janela
+      window.onresize = checkScreenWidth;
+  </script>
+
 </head>
 
 <body>
+
+    <div class="black-screen" id="blackScreen">
+      <h1>Desktop CSS Work in Progress... Try on Smartphone ;)</h1>
+    </div>
+
+
     <div class="center-items" id="l-header"><h1>Mineswapper</h1></div>
 
     <div class="center-items" id="table">
         <div id="table-top">
-            
+            <!-- tabuleiro -->
         </div>
     </div>
 
     <div class="center-items" id="game-config">
+        <div id="type-buttons">
+          <button class="type-button-flag-click" id="click-button" onclick="toggleButtonMode('click-button', 'flag-button')">❎</button>
+          <button class="type-button-flag-click" id="flag-button" onclick="toggleButtonMode('flag-button', 'click-button')">🚩</button>
+        </div>
+
         <label for="grid-side">Grid Side:</label>
         <select class="game-config-imput" id="grid-side" type="number" required>
         </select>
@@ -37,7 +65,9 @@
           required 
           type="number">
           <option value="10">10%</option>
-          <option value="20">20%</option>
+          <option value="15">15%</option>
+          <option value="20" selected>20%</option>
+          <option value="25">25%</option>
           <option value="30">30%</option>
           <option value="40">40%</option>
           <option value="50">50%</option>
