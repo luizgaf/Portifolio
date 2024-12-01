@@ -1,0 +1,44 @@
+.center-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-config-imput{
+    border: solid 2px gray;
+    border-radius: 10px;
+    width: 15vw;
+    height: 9vw;
+    background-color: whitesmoke;
+}
+.game-config-imput:focus{
+    outline: none;
+}
+
+.table-top-lines{
+    display: flex;
+    gap: auto;
+}
+
+.bombCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    font-size: 1rem; 
+    padding: 0px;
+    border: solid 1px gray;
+}
+
+.bombCell.bomb {
+    background-color: red !important;
+}
+
+.bombCell.safe {
+    background-color: green !important;
+}
+
+
+
+
