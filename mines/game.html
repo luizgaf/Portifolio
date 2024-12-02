@@ -36,7 +36,7 @@
 <body>
 
     <div class="black-screen" id="blackScreen">
-      <h1>Desktop CSS Work in Progress... Try on Smartphone ;)</h1>
+      <h1>:( desktop work in progress try on smartphone</h1>
     </div>
 
 
@@ -49,7 +49,12 @@
     </div>
 
     <div class="center-items" id="game-config">
-      <h4 id="bomb-qty">Bombs: </h4>
+      <div class="center-items">
+        <h4>Flag-Bombs:⠀</h4>
+        <h4 id="flag-qty">0</h4>
+        <h4>/</h4>
+        <h4 id="bomb-qty">0</h4>
+      </div>
 
         <div id="type-buttons">
           <button class="type-button-flag-click" id="click-button" onclick="toggleButtonMode('click-button', 'flag-button')">❎</button>
@@ -67,8 +72,8 @@
           required 
           type="number">
           <option value="10">10%</option>
-          <option value="15">15%</option>
-          <option value="20" selected>20%</option>
+          <option value="15" selected>15%</option>
+          <option value="20">20%</option>
           <option value="25">25%</option>
           <option value="30">30%</option>
           <option value="40">40%</option>
