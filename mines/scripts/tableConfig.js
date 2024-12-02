@@ -155,9 +155,6 @@ function showBombs(){
     }
 }
 
-
-
-
 function countAdjacentBombs(x, y, side) {
     let count = 0;
 
