@@ -1,5 +1,3 @@
-let bombCoords;
-
 function loadOptions(){
     const gridInput = document.getElementById("grid-side");
 
@@ -15,26 +13,14 @@ function loadOptions(){
 }
 
 function getBombFrequency(side, freq){
-    const bombAmmount = Math.pow(side, 2) * (freq/100);
+    const bombAmmt = Math.pow(side, 2) * (freq/100);
 
-    if((bombAmmount - Math.floor(bombAmmount)) >= 0.1){
-        return (Math.floor(bombAmmount) + 1);
+    if((bombAmmt - Math.floor(bombAmmt)) >= 0.1){
+        return (Math.floor(bombAmmt) + 1);
     }
     else{
-        return Math.floor(bombAmmount);
+        return Math.floor(bombAmmt);
     }
-}
-
-function createMatrix(side){
-    const matrix = [];
-    for(let i = 0; i < side; i++){
-        const row = [];
-        for(let j = 0; j< side; j++){
-            row.push(`${i} ${j}`);
-        }
-        matrix.push(row);
-    }
-    return matrix;
 }
 
 function bombCoord(side, freq){
@@ -52,13 +38,18 @@ function bombCoord(side, freq){
     return coord;
 }
 
+let bombAmmount, flagAmmount, flaggedMarked, firstClick, bombCoords;
+
 function boardBuilder(){
     let side = parseInt(document.getElementById("grid-side").value, 10);
     let freq = parseInt(document.getElementById("bomb-frequency").value, 10);
 
-    let bombAmmount = getBombFrequency(side, freq);
-    let gameBoard = createMatrix(side);
+    bombAmmount = getBombFrequency(side, freq);
     bombCoords = bombCoord(side, bombAmmount);
+    flagAmmount = 0;
+    flaggedMarked = 0;
+
+    firstClick = true
     
     const table = document.getElementById("table-top");
     table.innerHTML = "";
@@ -87,6 +78,10 @@ function boardBuilder(){
 
 function clickVerifier() {
     const cells = document.querySelectorAll(".bombCell");
+    const bombQtyLabel = document.getElementById("bomb-qty");
+    const flagQtyLabel = document.getElementById("flag-qty");
+    bombQtyLabel.textContent = bombAmmount;
+    flagQtyLabel.textContent = flagAmmount;
 
     cells.forEach(cell => {
         cell.addEventListener("click", function () {
@@ -96,25 +91,36 @@ function clickVerifier() {
             const cellCord = `${x} ${y}`;
             const side = parseInt(document.getElementById("grid-side").value, 10);
 
-            // Modo "Flag" - Adiciona ou remove bandeiras
             if (isFlagMode) {
-                if (cell.classList.contains("revealed")) return; // Não marca células já reveladas
+                if (cell.classList.contains("revealed")) return; 
                 if (cell.classList.contains("flagged")) {
                     cell.classList.remove("flagged");
-                    cell.textContent = ""; // Remove bandeira
+                    if(cell.textContent == "🚩"){
+                        flaggedMarked--;
+                    }
+                    cell.textContent = ""; // remove bandeira   
+                    flagAmmount --;
                 } else {
                     cell.classList.add("flagged");
-                    cell.textContent = "🚩"; // Adiciona bandeira
+                    if(flaggedMarked >= bombAmmount){
+                        cell.textContent = "❔";
+                    }
+                    else{
+                        cell.textContent = "🚩";
+                        flaggedMarked++;
+                    }
+                    flagAmmount ++;
                 }
+                flagQtyLabel.textContent = flagAmmount;
                 return;
             }
 
-            // Modo "Click" - Revela células
+            // revela celulas
             if (isClickMode) {
                 if (cell.classList.contains("flagged")) {
-                    // Remove a bandeira e continua com a revelação
+                    //remove bandeira e clica
                     cell.classList.remove("flagged");
-                    cell.textContent = ""; // Remove bandeira visualmente
+                    cell.textContent = ""; 
                 }
 
                 if (bombCoords.includes(cellCord)) {
@@ -122,7 +128,8 @@ function clickVerifier() {
                     cell.classList.add("bomb");
                     cell.textContent = "💣"; // Mostra bomba
                     cell.style.backgroundColor = "red";
-                    alert("Você perdeu!"); // Mensagem de explosão
+                    alert("KABOOM! Você perdeu!");
+                    showBombs(); 
                 } else {
                     // Revela célula segura
                     revealCell(this, x, y, side);
@@ -130,6 +137,22 @@ function clickVerifier() {
             }
         });
     });
+}
+
+function showBombs(){
+    const cells = document.querySelectorAll(".bombCell");
+
+    for(const cell of cells){
+        let x = cell.getAttribute("data-x");
+        let y = cell.getAttribute("data-y");
+        const cellCord = `${x} ${y}`;
+
+        if(bombCoords.includes(cellCord)){
+            cell.classList.add("bomb");
+            cell.textContent = "💣"; 
+            cell.style.backgroundColor = "red";
+        }
+    }
 }
 
 
@@ -151,7 +174,6 @@ function countAdjacentBombs(x, y, side) {
             }
         }
     }
-
     return count;
 }
 
