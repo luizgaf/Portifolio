@@ -1,4 +1,4 @@
-let bombAmmount, flagAmmount, flaggedMarked, firstClick, bombCoords, cells, lost, cellsClean, elapsedTime;
+let bombAmmount, flagAmmount, flaggedMarked, bombCoords, cells, lost, cellsClean, elapsedTime;
 
 function boardBuilder(){
     let side = parseInt(document.getElementById("grid-side").value, 10);
