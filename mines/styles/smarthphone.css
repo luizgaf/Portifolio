@@ -9,6 +9,6 @@
     #game-config{
         margin-top: 30px;
         flex-direction: column;
-        gap: 2vh;
+        gap: 1vh;
     }
 }
