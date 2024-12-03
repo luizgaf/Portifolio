@@ -1,4 +1,4 @@
-let bombAmmount, flagAmmount, flaggedMarked, firstClick, bombCoords, cells, lost, cellsClean, elapsedTime;
+let bombAmmount, flagAmmount, flaggedMarked, bombCoords, cells, lost, cellsClean, elapsedTime;
 
 function boardBuilder(){
     let side = parseInt(document.getElementById("grid-side").value, 10);
@@ -41,9 +41,7 @@ function boardBuilder(){
 function gameMineswapper() {
     const cells = document.querySelectorAll(".bombCell");
     const bombQtyLabel = document.getElementById("bomb-qty");
-    const flagQtyLabel = document.getElementById("flag-qty");
     bombQtyLabel.textContent = bombAmmount;
-    flagQtyLabel.textContent = flagAmmount;
 
     cellActionListener(cells);
 }
@@ -82,6 +80,8 @@ function getCellCord(cell){
 }
 
 function cellActionListener(cells){
+    const flagQtyLabel = document.getElementById("flag-qty");
+    flagQtyLabel.textContent = flagAmmount;
     cells.forEach(cell => {
         cell.addEventListener("click", function () {
             let x = this.getAttribute("data-x");
