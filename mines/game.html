@@ -13,6 +13,7 @@
 
     <!-- scripts -->
     <script src="scripts/tableConfig.js" defer></script>
+    <script src="scripts/gameSettings.js" defer></script>
 
     <script>
       function checkScreenWidth() {
@@ -63,6 +64,7 @@
 
         <label for="grid-side">Grid Side:</label>
         <select class="game-config-imput" id="grid-side" type="number" required>
+          <!-- options -->
         </select>
           
         <label for="bomb-frequency">Bomb Frequency %:</label>
@@ -71,6 +73,7 @@
           id="bomb-frequency" 
           required 
           type="number">
+          <option value="5">5%</option>
           <option value="10">10%</option>
           <option value="15" selected>15%</option>
           <option value="20">20%</option>

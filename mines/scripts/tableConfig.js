@@ -1,15 +1,51 @@
-function loadOptions(){
-    const gridInput = document.getElementById("grid-side");
+let bombAmmount, flagAmmount, flaggedMarked, firstClick, bombCoords, cells, lost, cellsClean, elapsedTime;
 
-    for(let i = 2; i <= 30; i++){
-      const option = document.createElement("option");
-      option.value = i;
-      option.textContent = i;
-      gridInput.appendChild(option);
-      if(i == 7){
-        option.selected = true;
-      }
+function boardBuilder(){
+    let side = parseInt(document.getElementById("grid-side").value, 10);
+    let freq = parseInt(document.getElementById("bomb-frequency").value, 10);
+
+    bombAmmount = getBombFrequency(side, freq);
+    bombCoords = bombCoord(side, bombAmmount);
+    flagAmmount = 0;
+    flaggedMarked = 0;
+
+    lost = false;
+    cellsClean = (side*side) - bombAmmount;
+    
+    const table = document.getElementById("table-top");
+    table.innerHTML = "";
+
+    table.style.gridTemplateRows = `repeat(${side}, 1fr)`;
+    table.style.gridTemplateColumns = `repeat(${side}, 1fr)`;
+
+    for (let i = 0; i < side; i++) {
+        for (let j = 0; j < side; j++) {
+            const cell = document.createElement("button");
+            cell.className = "bombCell";
+
+            cell.setAttribute("data-x", i);
+            cell.setAttribute("data-y", j);
+
+            cell.style.backgroundColor = "#b0b0b0";
+
+            const buttonSize = 100 / side; 
+
+            table.appendChild(cell);
+        }
     }
+    elapsedTime = Date.now();
+    gameMineswapper();
+    cells = document.querySelectorAll(".bombCell");
+}
+
+function gameMineswapper() {
+    const cells = document.querySelectorAll(".bombCell");
+    const bombQtyLabel = document.getElementById("bomb-qty");
+    const flagQtyLabel = document.getElementById("flag-qty");
+    bombQtyLabel.textContent = bombAmmount;
+    flagQtyLabel.textContent = flagAmmount;
+
+    cellActionListener(cells);
 }
 
 function getBombFrequency(side, freq){
@@ -38,51 +74,14 @@ function bombCoord(side, freq){
     return coord;
 }
 
-let bombAmmount, flagAmmount, flaggedMarked, firstClick, bombCoords;
+function getCellCord(cell){
+    let x = cell.getAttribute("data-x");
+    let y = cell.getAttribute("data-y");
 
-function boardBuilder(){
-    let side = parseInt(document.getElementById("grid-side").value, 10);
-    let freq = parseInt(document.getElementById("bomb-frequency").value, 10);
-
-    bombAmmount = getBombFrequency(side, freq);
-    bombCoords = bombCoord(side, bombAmmount);
-    flagAmmount = 0;
-    flaggedMarked = 0;
-
-    firstClick = true
-    
-    const table = document.getElementById("table-top");
-    table.innerHTML = "";
-
-    table.style.gridTemplateRows = `repeat(${side}, 1fr)`;
-    table.style.gridTemplateColumns = `repeat(${side}, 1fr)`;
-
-    for (let i = 0; i < side; i++) {
-        for (let j = 0; j < side; j++) {
-            const cell = document.createElement("button");
-            cell.className = "bombCell";
-
-            cell.setAttribute("data-x", i);
-            cell.setAttribute("data-y", j);
-
-            cell.style.backgroundColor = "#b0b0b0";
-
-            const buttonSize = 100 / side; 
-
-            table.appendChild(cell);
-        }
-    }
-
-    clickVerifier();
+    return `${x} ${y}`;
 }
 
-function clickVerifier() {
-    const cells = document.querySelectorAll(".bombCell");
-    const bombQtyLabel = document.getElementById("bomb-qty");
-    const flagQtyLabel = document.getElementById("flag-qty");
-    bombQtyLabel.textContent = bombAmmount;
-    flagQtyLabel.textContent = flagAmmount;
-
+function cellActionListener(cells){
     cells.forEach(cell => {
         cell.addEventListener("click", function () {
             let x = this.getAttribute("data-x");
@@ -129,10 +128,11 @@ function clickVerifier() {
                     cell.textContent = "💣"; // Mostra bomba
                     cell.style.backgroundColor = "red";
                     alert("KABOOM! Você perdeu!");
+                    lost = true;
                     showBombs(); 
                 } else {
-                    // Revela célula segura
                     revealCell(this, x, y, side);
+                    verifyWin();
                 }
             }
         });
@@ -140,8 +140,6 @@ function clickVerifier() {
 }
 
 function showBombs(){
-    const cells = document.querySelectorAll(".bombCell");
-
     for(const cell of cells){
         let x = cell.getAttribute("data-x");
         let y = cell.getAttribute("data-y");
@@ -174,26 +172,38 @@ function countAdjacentBombs(x, y, side) {
     return count;
 }
 
+function verifyWin(){
+    let n = 0;
+    if(lost == false){
+        for(const cell of cells ){
+            if(cell.classList.contains("revealed")){
+                n++;
+            }
+        }
+        if(n == cellsClean){
+            alert(`You Win! :) Elapsed Time = ${formatTime(Date.now() - elapsedTime)}`);
+        }
+    }
+}
+
 let isFlagMode = false;
 let isClickMode = true;
 
 function revealCell(cell, x, y, side, isBomb) {
-    // Se já foi revelada, ignore
+
     if (cell.classList.contains("revealed")) return;
 
-    // Modo "bandeira"
     if (isFlagMode) {
         if (cell.classList.contains("flagged")) {
             cell.classList.remove("flagged");
-            cell.textContent = ""; // Remove símbolo da bandeira
+            cell.textContent = ""; 
         } else {
             cell.classList.add("flagged");
-            cell.textContent = "🚩"; // Adiciona símbolo da bandeira
+            cell.textContent = "🚩";
         }
-        return; // Não revela a célula
+        return;
     }
 
-    // Modo "click"
     if (isClickMode) {
         // Se a célula está marcada com uma bandeira, não revelar
         if (cell.classList.contains("flagged")) return;
@@ -236,26 +246,3 @@ function revealCell(cell, x, y, side, isBomb) {
         }
     }
 }
-
-function toggleButtonMode(activeId, inactiveId) {
-    const activeButton = document.getElementById(activeId);
-    const inactiveButton = document.getElementById(inactiveId);
-
-    activeButton.classList.add('active');
-    inactiveButton.classList.remove('active');
-
-    if (activeId === "flag-button") {
-        isFlagMode = true;
-        isClickMode = false;
-    } else {
-        isFlagMode = false;
-        isClickMode = true;
-    }
-
-    activeButton.style.backgroundColor = "gray"; 
-    inactiveButton.style.backgroundColor = "#ccc";
-}
-
-
-loadOptions();
-boardBuilder();
