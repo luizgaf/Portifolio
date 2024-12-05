@@ -9,31 +9,32 @@
         <!-- javascript -->
 
         <!-- stylesss -->
-        <link rel="stylesheet" href="styles/bodybaseheader.css">
+        <link rel="stylesheet" href="../css/styles/bodybaseheader.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
 <body>
     <!-- headerr -->
     <header class="header">
+        <link rel="stylesheet" href="../../css/styles/bodybaseheader.css">
         <ul class="header-h-list">
             <a class="headerbutton" href="index.html">About Me</a>
             <a class="headerbutton" href="games.html">Games</a>
             <a class="headerbutton" id="littleprojectsbutton" href="littleprojects.html">Little Projects</a>
         </ul>
-
+    
         <div id="header-rest">
             <div id="headerconfig">
                 <a href="" id="config-img">
-                    <img id="img-config-header" src="assets/imgs/config2.png" alt="config-img" >
+                    <img id="img-config-header" src="../imgs/config2.png" alt="config-img" >
                 </a>
             </div>
         </div>
-
     </header>
+
     <p>Games provide an engaging platform to learn and apply programming concepts in a practical and interactive way. Explore the games I've created as part of my programming journey!</p>
 
     <div id="mineswapper-div">
-        <a id="mineswapper-a" href="#" onclick="openCustomWindow('/games/mines/game.html')">Mineswapper</a>
+        <a id="mineswapper-a" href="#" onclick="openCustomWindow('../pages/games/mines/game.html')">Mineswapper</a>
         <script>
             function openCustomWindow(url) {
                 const width = 470;
