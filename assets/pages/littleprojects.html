@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Portfólio - Little Projects</title>
+        <!-- javascript -->
+         <script src="../js/littleProjects/hours.js" defer></script>
+         <script src="../js/littleProjects/hourscriptonload.js" defer></script>
+         <script src="../js/littleProjects/analogclock.js" defer></script>
+         <script src="../js/littleProjects/binary-decimal-converter.js" defer></script>
+         <script src="../js/littleProjects/calculator.js" defer></script>
+        <!-- Link to external CSS files -->
+        <link rel="stylesheet" href="../css/styles/bodybaseheader.css">
+        <link rel="stylesheet" href="../css/littleProjects/littleprojectsstyles.css">
+        <link rel="stylesheet" href="../css/littleProjects/calculator.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="../css/littleProjects/hourclocks.css">
+        <link rel="stylesheet" href="../css/littleProjects/binary-decimal-converter.css">
+        <link rel="stylesheet" href="../css/littleProjects/class.css">
+    </head>
+
+    <body>
+        <!-- headerr -->
+        <header class="header">
+            <link rel="stylesheet" href="../../css/styles/bodybaseheader.css">
+            <ul class="header-h-list">
+                <a class="headerbutton" href="index.html">About Me</a>
+                <a class="headerbutton" href="games.html">Games</a>
+                <a class="headerbutton" id="littleprojectsbutton" href="littleprojects.html">Little Projects</a>
+            </ul>
+        
+            <div id="header-rest">
+                <div id="headerconfig">
+                    <a href="" id="config-img">
+                        <img id="img-config-header" src="../imgs/config2.png" alt="config-img" >
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CALCULATOR -->
+        <section class="stance" id="calculator-stance">
+            <h1>Calculator</h1>
+                <section  id="calculator-body">
+                    <div id="calculator-screen">
+                        <input type="text" id="previous-screen" readonly>
+                        <input type="text" id="calc-screen-input" readonly>
+                    </div>
+                    <div id="buttons-zone">
+                        <div id="number-buttons-zone">
+                            <div>
+                                <button class="calc-b1" onclick="actionButton(1)"><h1>1</h1></button>
+                                <button class="calc-b1" onclick="actionButton(2)"><h1>2</h1></button>
+                                <button class="calc-b1" onclick="actionButton(3)"><h1>3</h1></button>
+                                <button class="calc-b1" onclick="actionButton(4)"><h1>4</h1></button>
+                                <button class="calc-b1" onclick="actionButton(5)"><h1>5</h1></button>
+                                <button class="calc-b1" onclick="actionButton(6)"><h1>6</h1></button>
+                                <button class="calc-b1" onclick="actionButton(7)"><h1>7</h1></button>
+                                <button class="calc-b1" onclick="actionButton(8)"><h1>8</h1></button>
+                                <button class="calc-b1" onclick="actionButton(9)"><h1>9</h1></button>
+                                <button class="calc-b1" onclick="actionButton(0)"><h1>0</h1></button>
+                            </div>
+                        </div>
+
+                        <div id="operations-buttons-zone">
+                            <div id="operations-buttons">
+                                <button class="operator" onclick="operation(2)"><h1>-</h1></button>
+                                <button class="operator" onclick="operation(1)"><h1>+</h1></button>
+                                <button class="operator" onclick="operation(4)"><h1>÷</h1></button>
+                                <button class="operator" onclick="operation(3)"><h1>×</h1></button>
+                            </div>
+                            <div id="rest-operations">
+                                
+                                <div id="otherdiv-b">
+                                    <button id="other-things" onclick="dotInput()"><h1>.</h1></button>
+                                    <button id="other-things" onclick="percentage()"><h1>%</h1></button>
+                                    <button id="other-things" onclick="clearInput()"><h1>C</h1></button>
+                                    <button id="other-things" onclick="factorial()"><h1>!</h1></button>
+                                </div>
+
+                                <div id="equal-div">
+                                    <button id="equal-button" onclick="equalButton()"><h1>=</h1></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        </section>
+
+        <!-- BINARY 2 DECIMAL -->
+        <div id="binary-decimal-converter" class="center-items flex-wrap-collumn">
+            <link rel="stylesheet" href="styles/binary-decimal-converter.css">
+            <script src="scripts/binary-decimal-converter.js" defer></script>
+            <h1 class="center-items">Binary 2 Decimal</h1>
+                <div class="center-items flex-wrap-collumn">
+                    <label for="binarybox">Binary Number:</label>
+                    <input id="binarybox" type="text" required placeholder="Binary Number">
+                    <label for="decimalbox">Decimal Converted:</label>
+                    <input id="decimalbox" type="text" readonly placeholder="Decimal Number">
+
+                    <script>
+                        document.getElementById("binarybox").addEventListener("keydown", function (event) {
+                            const allowedChars = "01";
+                        
+                            const specialKeys = ["Backspace", "Tab", "Enter", "ArrowLeft", "ArrowRight", "Delete"];
+                            if (!allowedChars.includes(event.key) && !specialKeys.includes(event.key)) {
+                                event.preventDefault();
+                            }
+                        });
+                    </script>
+
+                </div>
+            <button onclick="binaryToDecimal()">Convert</button>
+        </div>
+
+        <!-- TIME ZONES -->
+        <section class="stance">
+            <h1>Time zones</h1>
+            <section id="hoursection">
+                <ul class="horizontal-list">
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hjpn"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="acjpn"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+
+                        <h4>Tokyo</h4>
+                        <h6>Japan</h6>
+                    </div>
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hbsb"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="acbsb"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+                        
+                        <h4>Brasília</h4>
+                        <h6>Brazil</h6>
+                    </div>
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hnyc"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="acnyc"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+                        
+                        <h4>New York</h4>
+                        <h6>United States</h6>
+                    </div>
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hgmt"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="aclon"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+                        
+                        <h4>London</h4>
+                        <h6>England</h6>
+                    </div>
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hsyd"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="acsyd"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+                        
+                        <h4>Sydney</h4>
+                        <h6>Australia</h6>
+                    </div>
+
+                    <div class="hour">
+                        <div class="hoursideside">
+                            <h2 id="hbei"></h2>
+                        </div>
+
+                        <div class="analog-clock">
+                            <div class="hand hour-hand" id="acbei"></div>
+                            <div class="hand minute-hand"></div>
+                            <div class="hand second-hand"></div>
+                        </div>
+                        
+                        <h4>Beijing</h4>
+                        <h6>China</h6>
+                    </div>
+
+                </ul>
+            </section>
+        </section>
+    </body>
+</html>

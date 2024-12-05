@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mineswapper - Luiz Guilherme</title>
+
+    <!-- styes -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/class.css">
+    <link rel="stylesheet" href="styles/id.css">
+    <link rel="stylesheet" href="styles/smarthphone.css">
+
+    <!-- scripts -->
+    <script src="scripts/tableConfig.js" defer></script>
+    <script src="scripts/gameSettings.js" defer></script>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="responsive-div">
+
+      <div class="center-items" id="l-header"><h1>Mineswapper</h1></div>
+  
+      <div class="center-items" id="table">
+          <div id="table-top">
+              <!-- tabuleiro -->
+          </div>
+      </div>
+  
+      <div class="center-items" id="game-config">
+        <div class="center-items">
+          <h4>Flag-Bombs:⠀</h4>
+          <h4 id="flag-qty">0</h4>
+          <h4>/</h4>
+          <h4 id="bomb-qty">0</h4>
+        </div>
+  
+          <div id="type-buttons">
+            <button class="type-button-flag-click" id="click-button" onclick="toggleButtonMode('click-button', 'flag-button')">❎</button>
+            <button class="type-button-flag-click" id="flag-button" onclick="toggleButtonMode('flag-button', 'click-button')">🚩</button>
+          </div>
+  
+          <label for="grid-side">Grid Side:</label>
+          <select class="game-config-imput" id="grid-side" type="number" required>
+            <!-- options -->
+          </select>
+            
+          <label for="bomb-frequency">Bomb Frequency %:</label>
+          <select 
+          class="game-config-imput"
+            id="bomb-frequency" 
+            required 
+            type="number">
+            <option value="5">5%</option>
+            <option value="10">10%</option>
+            <option value="15" selected>15%</option>
+            <option value="20">20%</option>
+            <option value="25">25%</option>
+            <option value="30">30%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+            <option value="60">60%</option>
+            <option value="70">70%</option>
+            <option value="80">80%</option>
+            <option value="90">90%</option>
+          </select>
+        
+          <button type="submit" id="startGameButton" onclick="boardBuilder()">Start Game</button>
+        </div>
+    </div>
+  </div>  
+</body>
+
+</html>
